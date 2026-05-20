@@ -1,18 +1,18 @@
 package edu.sdccd.cisc191;
 
-public class Student implements StudentFilter.studentGet {
-    private final int id;
+public class Student  {
+
     private final String name;
     private final double gpa;
+    private final int id;
+    public Student(String name, double gpa, int id) {
 
-    public Student(int id, String name, double gpa) {
-
-        if(id <0 ){
+        if(id <=0 ){
             throw new IllegalArgumentException("does not work");
         }
 
 
-        if(name== null || name.isEmpty() || name != toString()){
+        if(name== null || name.isEmpty() ){
             throw new IllegalArgumentException("does not work");
         }
 
@@ -23,18 +23,21 @@ public class Student implements StudentFilter.studentGet {
         this.name = name;
         this.id = id;
     }
-   @Override
+
     public int getId(){
         return id;
     }
 
-
-
     @Override
+    public String toString() {
+        return("name: " + getName()+" ID: " + getId() + " GPA: " +getGpa() );
+    }
+
+
     public double getGpa(){
         return gpa;
     }
-    @Override
+
     public String getName(){
         return name;
     }
